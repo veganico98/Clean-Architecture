@@ -1,4 +1,5 @@
-import { Column, Entity, PrimaryColumn } from "typeorm";
+import { Column, CreateDateColumn, Entity, PrimaryColumn } from "typeorm";
+import crypto from 'crypto';
 
 export enum ProjectStatus {
     Pending = "pending",
@@ -15,15 +16,29 @@ export class Project {
     @Column()
     name: string;
 
-    @Column({nullable: true, type: 'datetime'})
+    @CreateDateColumn({ nullable: true })
     startedAt: Date | null;
+
+    @CreateDateColumn({ nullable: true })
+    finishedAt: Date | null;
 
     @Column({type: 'simple-enum'})
     status: ProjectStatus;
 
-    @Column({type: 'datetime'})
+    @CreateDateColumn()
     createdAt: Date;
 
-    @Column({type: 'datetime'})
+    @CreateDateColumn()
     updatedAt: Date;
+
+    constructor(props: {
+        name: string;
+        startedAt?: Date | null;
+        finishedAt?: Date | null;
+        createdAt?: Date | null;
+        updatedAt?: Date | null;
+    }, id? : string) {
+        Object.assign(this, props);
+        this.id = id ?? crypto.randomUUID();
+    }
 }

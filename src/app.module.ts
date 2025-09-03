@@ -3,6 +3,7 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { ProjectsModule } from './projects/projects.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
+import { Project } from './projects/entities/project.entity';
 
 @Module({
   imports: [ProjectsModule,
@@ -13,6 +14,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
     username: process.env.DB_USER || 'root',
     password: process.env.DB_PASSWORD || 'root',
     database: process.env.DB_NAME || 'arch',
+    entities: [Project],
     synchronize: true, // true só em desenvolvimento, false em produção
     //autoLoadEntities: true, //Carreta entities registradas nos módulos
   })],
