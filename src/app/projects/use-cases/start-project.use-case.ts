@@ -1,6 +1,6 @@
 import { Inject, NotFoundException } from "@nestjs/common";
 import { StartProjectDto } from "../dto/start-project.dto";
-import { IProjectRepository } from "src/repositories/project.ropository";
+import type { IProjectRepository } from "src/repositories/project.repository";
 
 export class StartProjectUseCase {
     constructor(

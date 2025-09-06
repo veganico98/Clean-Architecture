@@ -4,6 +4,7 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { Project } from './app/projects/entities/project.entity';
 import { ProjectsModule } from './app/projects/projects.module';
+import { UsersModule } from './app/users/users.module';
 
 @Module({
   imports: [
@@ -19,6 +20,7 @@ import { ProjectsModule } from './app/projects/projects.module';
       // autoLoadEntities: true, // Carrega entities registradas nos módulos
     }),
     ProjectsModule,
+    UsersModule,
   ],
   controllers: [AppController],
   providers: [AppService],

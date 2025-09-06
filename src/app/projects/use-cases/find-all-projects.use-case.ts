@@ -1,5 +1,5 @@
 import { Inject, Injectable } from "@nestjs/common";
-import { IProjectRepository } from "src/repositories/project.ropository";
+import type { IProjectRepository } from "src/repositories/project.repository";
 
 @Injectable()
 export class FindAllProjectsUseCase {

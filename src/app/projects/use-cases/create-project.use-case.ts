@@ -1,4 +1,4 @@
-import { IProjectRepository } from "src/repositories/project.ropository";
+import type { IProjectRepository } from "src/repositories/project.repository";
 import { CreateProjectDto } from "../dto/create-project.dto";
 import { Project } from "../entities/project.entity";
 import { Inject, Injectable } from "@nestjs/common";
